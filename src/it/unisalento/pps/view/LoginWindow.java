@@ -1,20 +1,15 @@
 package it.unisalento.pps.view;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
 
-import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
 import it.unisalento.pps.listeners.LoginBtnListener;
 
-public class LoginWindow extends JFrame {
+public class LoginWindow extends MainPanel {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
 
@@ -22,17 +17,11 @@ public class LoginWindow extends JFrame {
 	private JPasswordField passwordField;
 
 	public LoginWindow() {
-		super("Login");
-		
-		Container c = getContentPane();
-		BorderLayout b = new BorderLayout();
-		c.setLayout(b);
+		super();
 
-		JPanel nord = new JPanel();
-		JPanel centro = new JPanel();
+//		setLayout(null);
 		
-		
-		centro.setLayout(null);
+//		centro.setLayout(null);
 		
 		JLabel l1 = new JLabel ("Username:");
 		Dimension l1Size = l1.getPreferredSize();
@@ -60,16 +49,11 @@ public class LoginWindow extends JFrame {
 		b1.addActionListener(new LoginBtnListener(this));
 		centro.add(b1);
 		
-		c.add(centro, BorderLayout.CENTER);
-		
-		
-		JLabel img = new JLabel(new ImageIcon("C:\\Users\\Fra\\Desktop\\Università\\Principi di progettazione del software\\Progetto\\img.jpg"));
-		nord.add(img);
-		c.add(nord, BorderLayout.NORTH);
-		
-		setSize(1000,600);
-		setDefaultCloseOperation(EXIT_ON_CLOSE);
-		setVisible(true);
+//		JLabel img = new JLabel(new ImageIcon("C:\\Users\\Fra\\Desktop\\Università\\Principi di progettazione del software\\Progetto\\img.jpg"));
+//		nord.add(img);
+		this.add(nord);
+		this.add(centro);
+//		setVisible(true);
 	}
 	
 	/*

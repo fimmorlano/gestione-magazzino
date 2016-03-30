@@ -5,7 +5,7 @@ public class StartUp {
 	public static void main(String[] args) {
 		
 	//	new LoginWindow();
-	//	new MainWindowDipendente();
+		new MainWindow();
 	//	new FirstWinMagazziniere();
 	//	new RifornisciMagazzinoView();
 	//	new PrenotaArticoliWindow();

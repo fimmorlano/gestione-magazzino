@@ -69,7 +69,9 @@ public class DbConnection {
 
          while(rs.next()) {   // Creo il vettore risultato scorrendo tutto il ResultSet
             record = new String[colonne];
-            for (int i=0; i<colonne; i++) record[i] = rs.getString(i+1);
+            for (int i=0; i<colonne; i++) {
+            	record[i] = rs.getString("nome");
+            }
             v.add( (String[]) record.clone() );
          }
          rs.close();     // Chiudo il ResultSet

@@ -23,7 +23,7 @@ public class MainPanel extends JPanel {
 //		centro.add(new JLabel("test"));
 		
 		setLayout(new BorderLayout());
-//		setVisible(true); // TODO false per default?
+//		setVisible(false); // TODO false per default?
 	}
 
 	/*

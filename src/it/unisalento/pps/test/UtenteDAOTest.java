@@ -19,6 +19,10 @@ public class UtenteDAOTest {
 			
 			// creo l'utente
 			utenteDAO.createUtente(utente);
+			
+			utente.setNome("nome cambiato");
+
+			utenteDAO.updateUtente(utente);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

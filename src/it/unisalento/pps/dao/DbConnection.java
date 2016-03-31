@@ -5,7 +5,6 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import java.sql.SQLException;
 import java.sql.Statement;
 
 import javax.sql.rowset.CachedRowSet;
@@ -104,17 +103,13 @@ public class DbConnection {
          
          System.out.println("Sto eseguendo la query:"+query);
          
-         int affectedRows = statement.executeUpdate();
+         statement.executeUpdate();
          
-         if (affectedRows == 0) {
-             throw new SQLException("Creating user failed, no rows affected.");
-         }
-
          try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
              if (generatedKeys.next()) {
             	 result = generatedKeys.getLong(1);
              } else {
-                 throw new SQLException("Creating user failed, no ID obtained.");
+            	 result = 0;
              }
          }
 

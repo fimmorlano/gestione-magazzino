@@ -154,24 +154,21 @@ public class UtenteDAO {
 	
 
 	public Utente createUtente(Utente utente) throws Exception { // TODO ?? ritornare oggetto di tipo Utente o un booleano?
-		Utente user = null;
-		
 		String create = "INSERT INTO utente (nome, cognome, telefono, codice_fiscale, email, tipo_utente, username, password) "
 		           + "VALUES ('"+utente.getNome()+"', '"+utente.getCognome()+"', '"+utente.getTelefono()+"', '"+utente.getCodiceFiscale()+"', '"+utente.getEmail()+"', 'DIPENDENTE', '"+utente.getUsername()+"', '"+utente.getPassword()+"');";
 		long idUtente = dbConnection.eseguiAggiornamento(create);
 		System.out.println("creato utente con id:"+idUtente);
+		
+		utente.setIdUtente(idUtente);
 
-		return user;
+		return utente;
 	}
 
 	
 	public Utente updateUtente(Utente utente) throws Exception { 
-		Utente user = null;
-		
-		String update = "UPDATE utente SET nome="+utente.getNome()+", cognome="+utente.getCognome()+", telefono="+utente.getTelefono()+", codice_fiscale="+utente.getCodiceFiscale()+", email="+utente.getEmail()+", username="+utente.getUsername()+", password="+utente.getPassword()+" WHERE nome="+utente.getNome()+", cognome="+utente.getCognome()+" ;";
+		String update = "UPDATE utente SET nome='"+utente.getNome()+"', cognome='"+utente.getCognome()+"', telefono='"+utente.getTelefono()+"', codice_fiscale='"+utente.getCodiceFiscale()+"', email='"+utente.getEmail()+"', username='"+utente.getUsername()+"', password='"+utente.getPassword()+"' WHERE id_utente="+utente.getIdUtente()+";";
 		dbConnection.eseguiAggiornamento(update);
-		
-		return user;
+		return utente;
 	}
 
 	

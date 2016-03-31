@@ -1,11 +1,8 @@
 package it.unisalento.pps.model;
 
-import it.unisalento.pps.dao.UtenteDAO;
-
-
 public class Utente {
 	
-	private int idUtente;
+	private long idUtente;
 	private String nome;
 	private String cognome;
 	private String telefono;
@@ -21,7 +18,7 @@ public class Utente {
 	}
 	
 	public Utente(int idUtente, String nome, String cognome, String telefono, String codiceFiscale, String email, String tipoUtente, String username, String password) {
-		this.idUtente = idUtente;
+		this.setIdUtente(idUtente);
 		this.nome = nome;
 		this.cognome = cognome;
 		this.telefono = telefono;
@@ -32,16 +29,6 @@ public class Utente {
 		this.password = password;
 	}
  
-	
-	
-	
-	public int getIdUtente() {
-		return idUtente;
-	}
-
-	public void setIdUtente(int idUtente) {
-		this.idUtente = idUtente;
-	}
 
 	public String getNome() {
 		return nome;
@@ -138,6 +125,14 @@ public class Utente {
 		//TODO ? gestire l'eccezione lanciata da userExists
 //		return UtenteDAO.getInstance().userExists(username, password);
 		return false;
+	}
+
+	public long getIdUtente() {
+		return idUtente;
+	}
+
+	public void setIdUtente(long idUtente) {
+		this.idUtente = idUtente;
 	}
 	
 	

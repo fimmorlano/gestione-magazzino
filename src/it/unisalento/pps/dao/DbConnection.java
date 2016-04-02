@@ -105,6 +105,9 @@ public class DbConnection {
          
          statement.executeUpdate();
          
+         /*
+          * recupero l'id dell'oggetto appena aggiornato
+          */
          try (ResultSet generatedKeys = statement.getGeneratedKeys()) {
              if (generatedKeys.next()) {
             	 result = generatedKeys.getLong(1);

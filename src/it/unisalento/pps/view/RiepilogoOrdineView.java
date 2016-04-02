@@ -1,6 +1,7 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.awt.FlowLayout;
 
 import javax.swing.JButton;
@@ -15,21 +16,24 @@ public class RiepilogoOrdineView extends MainPanel {
 		super();
 		
 		JLabel labelOrdineAutorizzato = new JLabel ("Il sistema ha autorizzato il seguente ordine di articoli:");
-		centro.add(labelOrdineAutorizzato, BorderLayout.NORTH);
+		Dimension labelOrdineAutorizzatoSize = labelOrdineAutorizzato.getPreferredSize();
+		labelOrdineAutorizzato.setBounds(410, 10, labelOrdineAutorizzatoSize.width, labelOrdineAutorizzatoSize.height);
+		centro.add(labelOrdineAutorizzato, BorderLayout.NORTH); // TODO ?? perché intendiamo aggiungerlo a nord e invece il layout del panel centro è null??
 		
 		/*
-		 * TODO implementare la lista che costituisce il riepilogo dell'ordine, e che andrà nella parte
+		 * TODO ? implementare la lista che costituisce il riepilogo dell'ordine, e che andrà nella parte
 		 * centrale del BorderLayout
 		 */
 		
 		
 		JPanel jPanelOperations = new JPanel();
+		// TODO ? non visualizza questi due bottoni Indietro e Avanti
 		jPanelOperations.setLayout(new FlowLayout());
 		JButton indietroBtn = new JButton("Indietro");
 		jPanelOperations.add(indietroBtn);
 		JButton avantiBtn = new JButton("Avanti");
 		jPanelOperations.add(avantiBtn);
-		centro.add(jPanelOperations, BorderLayout.SOUTH);
+		centro.add(jPanelOperations);
 	
 		this.add(nord);
 		this.add(centro);

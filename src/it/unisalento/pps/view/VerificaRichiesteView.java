@@ -4,7 +4,7 @@ public class VerificaRichiesteView {
 
 	public VerificaRichiesteView() {
 		
-		// TODO implementare la view di verifica richieste 
+		// TODO ? implementare la view di verifica richieste 
 		
 	}
 

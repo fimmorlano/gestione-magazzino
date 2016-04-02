@@ -154,8 +154,7 @@ public class UtenteDAO {
 	
 
 	public Utente createUtente(Utente utente) throws Exception { // TODO ?? ritornare oggetto di tipo Utente o un booleano?
-		String create = "INSERT INTO utente (nome, cognome, telefono, codice_fiscale, email, tipo_utente, username, password) "
-		           + "VALUES ('"+utente.getNome()+"', '"+utente.getCognome()+"', '"+utente.getTelefono()+"', '"+utente.getCodiceFiscale()+"', '"+utente.getEmail()+"', 'DIPENDENTE', '"+utente.getUsername()+"', '"+utente.getPassword()+"');";
+		String create = "INSERT INTO utente (nome, cognome, telefono, codice_fiscale, email, tipo_utente, username, password) "+ "VALUES ('"+utente.getNome()+"', '"+utente.getCognome()+"', '"+utente.getTelefono()+"', '"+utente.getCodiceFiscale()+"', '"+utente.getEmail()+"', 'DIPENDENTE', '"+utente.getUsername()+"', '"+utente.getPassword()+"');";
 		long idUtente = dbConnection.eseguiAggiornamento(create);
 		System.out.println("creato utente con id:"+idUtente);
 		

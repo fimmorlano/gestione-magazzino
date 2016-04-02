@@ -16,7 +16,7 @@ public class UtenteBusiness {
 	
 	public boolean verificaLogin(String username, String password)
 	{
-		Utente p=new Utente(username, password);
+		Utente p=new Utente(); //TODO ? sarebbe opportuno creare un costruttore Utente (Strin username, String password) e richiamarlo qua dentro?
 		return p.login();
 	}
 	

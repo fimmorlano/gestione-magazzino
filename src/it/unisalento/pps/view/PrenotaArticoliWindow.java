@@ -24,39 +24,23 @@ import javax.swing.table.TableModel;
 
 import it.unisalento.pps.model.Magazzino;
 
-public class PrenotaArticoliWindow extends JFrame {
+public class PrenotaArticoliWindow extends MainPanel {
 
 	private JPanel jPanelSelezionaArticoli = new JPanel();
 	
 	private JPanel jPanelOperations = new JPanel();
 	
 	private JPanel jPanelMagazzinoProgetto = new JPanel();
-	
-	
-	public JPanel getjPanelSelezionaArticoli() {
-		return jPanelSelezionaArticoli;
-	}
-	
-	public JPanel getjPanelOperations(){
-		return jPanelOperations;
-	}
-	
-	public JPanel getjPanelMagazzinoProgetto(){
-		return jPanelMagazzinoProgetto;
-	}
-	
-	
-	
-	
+		
 	
 		public PrenotaArticoliWindow() {
-			super("Prenota Articoli");
-		
-			Container c = getContentPane();
-		
-			c.setLayout(new BorderLayout());
+			super();
 		
 		
+			/*
+			 * TODO ? tabella che contiene tutti gli articoli che sono stati selezionati dal dipendente.
+			 * E' da fare o meno?
+			 */
 			Object[][] tabellaAO = new Object[15][6]; //è una matrice classica: array di array
 			tabellaAO[0][0] = "a";
 			tabellaAO[0][1] = "b";
@@ -79,7 +63,7 @@ public class PrenotaArticoliWindow extends JFrame {
 			//creiamo uno ScrollPane che contiene la tabella e che aggiungeremo nel container
 			JScrollPane p=new JScrollPane(tabellaArticoliOrdine);
 		jPanelSelezionaArticoli.add(p);
-	//	c.add(jPanelSelezionaArticoli, BorderLayout.CENTER);
+		centro.add(jPanelSelezionaArticoli, BorderLayout.CENTER);
 	
 	
 	
@@ -88,7 +72,7 @@ public class PrenotaArticoliWindow extends JFrame {
 			jPanelOperations.add(indietroBtn);
 			JButton avantiBtn = new JButton("Avanti");
 			jPanelOperations.add(avantiBtn);
-    //	c.add(jPanelOperations, BorderLayout.SOUTH);
+		centro.add(jPanelOperations, BorderLayout.SOUTH);
 			
 			
 			
@@ -111,21 +95,29 @@ public class PrenotaArticoliWindow extends JFrame {
 				Dimension ProgettoSize = JComboBoxProgetto.getPreferredSize();
 				JComboBoxProgetto.setBounds(100, 240, ProgettoSize.width, ProgettoSize.height);
 			jPanelMagazzinoProgetto.add(JComboBoxProgetto);
-	//	c.add(jPanelMagazzinoProgetto);
-	//	c.add(jPanelOperations, BorderLayout.SOUTH);
-			
-		
-			
+	   centro.add(jPanelMagazzinoProgetto);
 	
 			
-			
-			
-	
-	setSize(600,600);
-	setDefaultCloseOperation(EXIT_ON_CLOSE);
-	setVisible(true);	
+	   this.add(nord);
+	   this.add(centro);
 	}
 		
+		
+	/*
+	 * Get & Set
+	 */
+	
+		public JPanel getjPanelSelezionaArticoli() {
+			return jPanelSelezionaArticoli;
+		}
+		
+		public JPanel getjPanelOperations(){
+			return jPanelOperations;
+		}
+		
+		public JPanel getjPanelMagazzinoProgetto(){
+			return jPanelMagazzinoProgetto;
+		}
 }
 
 

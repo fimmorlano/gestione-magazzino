@@ -13,7 +13,7 @@ public class LoginWindow extends MainPanel {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
 
-	private JTextField usernameField;
+	private JTextField usernameField; // TODO ?? perché sono istanziati come variabili e poi ci sono anche i getter e i setter di questi due?
 	private JPasswordField passwordField;
 
 	public LoginWindow() {

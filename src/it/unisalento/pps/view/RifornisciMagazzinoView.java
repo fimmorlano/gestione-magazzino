@@ -21,7 +21,7 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
 
-public class RifornisciMagazzinoView extends JFrame {
+public class RifornisciMagazzinoView extends MainPanel {
 	
 	//pannello del caso d'uso "visualizza articoli da aggiungere in magazzino"
 		private JPanel jPanelSelezionaArticoliMagazzino = new JPanel();
@@ -37,49 +37,23 @@ public class RifornisciMagazzinoView extends JFrame {
 		
 	//pannello delle operazioni da effettuare per la rifornitura del magazzino
 			private JPanel jPanelOperazioniDettagli = new JPanel();
-		
-		
-		public JPanel getjPanelTabella() {
-			return jPanelSelezionaArticoliMagazzino;
-		}
-
-
-		public JPanel getjPanelNuovoArticolo() {
-			return jPanelNuovoArticolo;
-		}
-		
-		public JPanel getjPanelModificaArticolo() {
-			return jPanelModificaArticolo;
-		}
-		
-		public JPanel getjPanelOperations() {
-			return jPanelOperations;
-		}
-
-		public JPanel getjPanelOperazioniDettagli(){
-			return jPanelOperazioniDettagli;
-		}
 
 		
 		
 		public RifornisciMagazzinoView() {
-			super("Rifornisci magazzino");
+			super();
 			
-			Container c = getContentPane();
 			
-			c.setLayout(new BorderLayout());
-			
-		/*	
 			JPanel jpN = new JPanel();
 				jpN.setLayout(new FlowLayout());
 				jpN.add(new JButton("Comando 1"));
 				jpN.add(new JButton("Comando 2"));
 				jpN.add(new JButton("Comando 3"));
-			c.add(jpN, BorderLayout.NORTH);
-		*/
+		//	centro.add(jpN, BorderLayout.NORTH);
+		
 				
 			
-		/*	
+			
 			JPanel jpW = new JPanel();
 			jpW.setLayout(new GridLayout(2,1));
 			//	UnicaFinestraListener l = new UnicaFinestraListener(this);
@@ -91,15 +65,10 @@ public class RifornisciMagazzinoView extends JFrame {
 		//		b2.addActionListener(l);
 				jpW.add(b1);
 				jpW.add(b2);
-			c.add(jpW, BorderLayout.WEST);
-		*/
-			
-			
+		//	centro.add(jpW, BorderLayout.WEST);
 				
 			
-			
-			
-			
+					
 			//JPanel jPanelTable = new JPanel();
 				Object[][] tabellaAM = new Object[15][6]; //è una matrice classica: array di array
 				tabellaAM[0][0] = "a";
@@ -133,7 +102,7 @@ public class RifornisciMagazzinoView extends JFrame {
 				jPanelOperations.add(modifyBtn);
 				JButton deleteBtn = new JButton("Elimina articolo");
 				jPanelOperations.add(deleteBtn);
-		//	c.add(jPanelOperations, BorderLayout.SOUTH);
+			centro.add(jPanelOperations, BorderLayout.SOUTH);
 			
 			
 			
@@ -164,7 +133,7 @@ public class RifornisciMagazzinoView extends JFrame {
 			//creiamo uno ScrollPane che contiene la tabella e che aggiungeremo nel container
 			JScrollPane pNuovoArticolo=new JScrollPane(tabellaArticoli);
 		jPanelNuovoArticolo.add(pNuovoArticolo);
-	//	c.add(jPanelNuovoArticolo, BorderLayout.CENTER);
+	//	centro.add(jPanelNuovoArticolo, BorderLayout.CENTER);
 		
 		
 		jPanelOperazioniDettagli.setLayout(new FlowLayout());
@@ -215,11 +184,34 @@ public class RifornisciMagazzinoView extends JFrame {
 		//	c.add(jPanelOperazioniDettagli, BorderLayout.SOUTH);
 			
 		
-			 
+			this.add(nord);
+			this.add(centro); 
+	
+		}
 		
-			setSize(700,700);
-			setDefaultCloseOperation(EXIT_ON_CLOSE);
-			setVisible(true);
+		/*
+		 * Get & Set
+		 */
+		
+		public JPanel getjPanelTabella() {
+			return jPanelSelezionaArticoliMagazzino;
+		}
+
+
+		public JPanel getjPanelNuovoArticolo() {
+			return jPanelNuovoArticolo;
+		}
+		
+		public JPanel getjPanelModificaArticolo() {
+			return jPanelModificaArticolo;
+		}
+		
+		public JPanel getjPanelOperations() {
+			return jPanelOperations;
+		}
+
+		public JPanel getjPanelOperazioniDettagli(){
+			return jPanelOperazioniDettagli;
 		}
 
 }

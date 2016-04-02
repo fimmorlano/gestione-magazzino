@@ -10,13 +10,10 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
-public class FirstWinCapoProgetto extends JFrame{
+public class FirstWinCapoProgetto extends MainPanel{
 
 	public FirstWinCapoProgetto() {
-		super("Stampa rapporto degli ordini effettuati");
-		
-		Container c = getContentPane();
-		c.setLayout(new BorderLayout());
+		super();
 		
 		JPanel jPanelDipendenteProgetto = new JPanel();
 		jPanelDipendenteProgetto.setLayout(null);
@@ -32,13 +29,11 @@ public class FirstWinCapoProgetto extends JFrame{
 			Dimension progettoBtnSize = progettoBtn.getPreferredSize();
 			progettoBtn.setBounds(158, 140, progettoBtnSize.width, progettoBtnSize.height);
 		jPanelDipendenteProgetto.add(progettoBtn);
-	c.add(jPanelDipendenteProgetto, BorderLayout.CENTER);
+	centro.add(jPanelDipendenteProgetto, BorderLayout.CENTER);
 	
 	
-	
-	setSize(600,300);
-	setDefaultCloseOperation(EXIT_ON_CLOSE);
-	setVisible(true);	
+	this.add(nord);
+	this.add(centro);
 	
 	
 		

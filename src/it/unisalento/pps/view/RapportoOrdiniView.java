@@ -5,20 +5,18 @@ import java.awt.Container;
 
 import javax.swing.JFrame;
 
-public class RapportoOrdiniView extends JFrame{
+public class RapportoOrdiniView extends MainPanel{
 
 	private static final long serialVersionUID = 1L;
 
 	public RapportoOrdiniView() {
-		super("Stampa rapporto degli ordini effettuati");
+		super();
 		
-		Container c = getContentPane();
-		c.setLayout(new BorderLayout());
 		
 		/*
-		 * TODO la vista deve essere composta da una tabella e sotto un pulsante con scritto Stampa rapporto.
+		 * TODO ? la vista deve essere composta da una tabella e sotto un pulsante con scritto Stampa rapporto.
 		 * Decidere se dobbiamo dare la possibilità di raggruppare questi ordini visualizzati nella'altro modo 
-		 * rimanente.
+		 * rimanente, all'interno di questa stessa vista.
 		 */
 		
 	}

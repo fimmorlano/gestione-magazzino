@@ -22,7 +22,7 @@ public class MainPanel extends JPanel {
 		
 //		centro.add(new JLabel("test"));
 		
-		setLayout(new BorderLayout());
+		setLayout(new BorderLayout()); // TODO ?? a chi applica questo setLayout()?
 //		setVisible(false); // TODO false per default?
 	}
 

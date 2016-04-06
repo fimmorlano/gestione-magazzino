@@ -2,13 +2,13 @@ package it.unisalento.pps.model;
 
 public class Magazzino {
 	
-	private String idMagazzino;
+	private long idMagazzino;
 	private String telefono;
 	private String indirizzo;
 	private String citta;
 	
 
-	public Magazzino(String idMagazzino, String telefono, String indirizzo, String citta) {
+	public Magazzino(long idMagazzino, String telefono, String indirizzo, String citta) {
 		this.telefono = telefono;
 		this.indirizzo = indirizzo;
 		this.citta = citta;
@@ -16,11 +16,17 @@ public class Magazzino {
 	
 	
 
-	public String getIdMagazzino() {
+	public Magazzino() {
+		
+	}
+
+
+
+	public long getIdMagazzino() {
 		return idMagazzino;
 	}
 
-	public void setIdMagazzino(String idMagazzino) {
+	public void setIdMagazzino(long idMagazzino) {
 		this.idMagazzino = idMagazzino;
 	}
 

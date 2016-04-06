@@ -30,7 +30,7 @@ public class LoginBtnListener implements ActionListener {
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Utente non riconosciuto");
-			loginWindow.redirect(CardPanel.MAGAZZIENERE.getCardId());
+			loginWindow.redirect(CardPanel.MAGAZZINIERE);
 		}
 			
 		

@@ -27,13 +27,21 @@ public class MainPanel extends JPanel {
 		setLayout(new BorderLayout()); // TODO ?? a chi applica questo setLayout()?
 	}
 
-	@Override
-	protected void paintComponent(Graphics g) {
-		super.paintComponent(g);
-	}
+//	@Override
+//	protected void paintComponent(Graphics g) {
+//		super.paintComponent(g);
+//	}
 	
+	/**
+	 * Visualizza un altro pannello tra queli contenuti nella collezione di cards
+	 * della mainWindow.
+	 * 
+	 * @param panelId
+	 */
 	public void redirect(String panelId) {
+		// reperisco la mainWindow
 		MainWindow mainWindow = (MainWindow) SwingUtilities.getWindowAncestor(this);
+		// visualizzo il pannello desiderato contenuto nella mainWindow
 		mainWindow.showPanel(panelId);
 	}
 

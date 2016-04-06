@@ -13,7 +13,7 @@ import javax.swing.UnsupportedLookAndFeelException;
 /**
  * http://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
  * 
- * @author marco
+ * @author fra sara
  *
  */
 public class MainWindow extends JFrame {//implements ItemListener {
@@ -64,8 +64,9 @@ public class MainWindow extends JFrame {//implements ItemListener {
 		
         // Create the panel that contains the "cards".
         cards = new JPanel(new CardLayout());
-        cards.add(loginWindow, CardPanel.LOGIN.getCardId());
-        cards.add(firstWinMagazziniere, CardPanel.MAGAZZIENERE.getCardId());
+        
+        cards.add(loginWindow, CardPanel.LOGIN);
+        cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
 		
 //		this.add(loginWindow);
 //		c.add(riepilogoOrdineView, BorderLayout.CENTER);
@@ -95,29 +96,35 @@ public class MainWindow extends JFrame {//implements ItemListener {
         cl.show(cards, panelId);
     }
 
-    public enum CardPanel {
-    	LOGIN("LOGIN"),
-    	// altre cards....
-    	MAGAZZIENERE("MAGAZZINIERE");
-
-    	private String cardId;
-    	
-    	private CardPanel(String cardId) {
-			this.setCard(cardId);
-		}
-    	
-    	/*
-    	 * Get & Set
-    	 */
-
-		public String getCardId() {
-			return cardId;
-		}
-
-		public void setCard(String cardId) {
-			this.cardId = cardId;
-		}
-    }
+//    public enum CardPanel {
+//    	LOGIN("LOGIN_UNALTRO", "rosso"),
+//    	MAGAZZINIERE("MAGAZZINIERE", "giallo");
+//
+//    	private String cardId;
+//    	private String colore;
+//    	
+//    	private CardPanel(String cardId, String colore) {
+//			this.cardId = cardId;
+//			this.colore = colore;
+//		}
+//    	
+//    	/*
+//    	 * Get & Set
+//    	 */
+//
+//		public String getCardId() {
+//			return cardId;
+//		}
+//
+//		public void setCardId(String cardId) {
+//			this.cardId = cardId;
+//		}
+//    }
+    
+   public class CardPanel {
+	   public static final String LOGIN = "LOGIN";
+	   public static final String MAGAZZINIERE = "MAGAZZINIERE";
+   }
 
 }
 

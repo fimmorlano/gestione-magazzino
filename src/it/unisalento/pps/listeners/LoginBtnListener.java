@@ -2,6 +2,7 @@ package it.unisalento.pps.listeners;
 
 import it.unisalento.pps.business.UtenteBusiness;
 import it.unisalento.pps.view.LoginWindow;
+import it.unisalento.pps.view.MainWindow.CardPanel;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -24,10 +25,13 @@ public class LoginBtnListener implements ActionListener {
 		
 		boolean utenteEsiste = UtenteBusiness.getInstance().verificaLogin(username, password);
 		
-		if(utenteEsiste)
+		if(utenteEsiste) {
 			JOptionPane.showMessageDialog(null, "Benvenuto!");
-		else
+		}
+		else {
 			JOptionPane.showMessageDialog(null, "Utente non riconosciuto");
+			loginWindow.redirect(CardPanel.MAGAZZIENERE.getCardId());
+		}
 			
 		
 	}

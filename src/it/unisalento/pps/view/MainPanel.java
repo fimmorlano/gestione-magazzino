@@ -1,8 +1,10 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
+import java.awt.Graphics;
 
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class MainPanel extends JPanel {
 
@@ -23,7 +25,16 @@ public class MainPanel extends JPanel {
 //		centro.add(new JLabel("test"));
 		
 		setLayout(new BorderLayout()); // TODO ?? a chi applica questo setLayout()?
-//		setVisible(false); // TODO false per default?
+	}
+
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+	}
+	
+	public void redirect(String panelId) {
+		MainWindow mainWindow = (MainWindow) SwingUtilities.getWindowAncestor(this);
+		mainWindow.showPanel(panelId);
 	}
 
 	/*

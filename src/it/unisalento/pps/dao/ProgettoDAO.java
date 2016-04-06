@@ -5,11 +5,8 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.sun.org.apache.bcel.internal.generic.GETFIELD;
-
 import it.unisalento.pps.exception.DaoException;
 import it.unisalento.pps.model.Progetto;
-import it.unisalento.pps.model.Utente;
 
 /**
  * Dao per la tabella Progetto.

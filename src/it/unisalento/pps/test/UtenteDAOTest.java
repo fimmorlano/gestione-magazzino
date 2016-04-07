@@ -18,11 +18,11 @@ public class UtenteDAOTest {
 			utente.setCognome("cognome"+(new Date()).getTime());
 			
 			// creo l'utente
-			utenteDAO.createUtente(utente);
+			utenteDAO.create(utente);
 			
 			utente.setNome("nome cambiato");
 
-			utenteDAO.updateUtente(utente);
+			utenteDAO.update(utente);
 		} catch (Exception e) {
 			e.printStackTrace();
 		}

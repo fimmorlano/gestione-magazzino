@@ -63,7 +63,7 @@ public class PrenotaArticoliWindow extends MainPanel {
 			//creiamo uno ScrollPane che contiene la tabella e che aggiungeremo nel container
 			JScrollPane p=new JScrollPane(tabellaArticoliOrdine);
 		jPanelSelezionaArticoli.add(p);
-		centro.add(jPanelSelezionaArticoli, BorderLayout.CENTER);
+		body.add(jPanelSelezionaArticoli, BorderLayout.CENTER);
 	
 	
 	
@@ -72,7 +72,7 @@ public class PrenotaArticoliWindow extends MainPanel {
 			jPanelOperations.add(indietroBtn);
 			JButton avantiBtn = new JButton("Avanti");
 			jPanelOperations.add(avantiBtn);
-		centro.add(jPanelOperations, BorderLayout.SOUTH);
+			body.add(jPanelOperations, BorderLayout.SOUTH);
 			
 			
 			
@@ -95,11 +95,9 @@ public class PrenotaArticoliWindow extends MainPanel {
 				Dimension ProgettoSize = JComboBoxProgetto.getPreferredSize();
 				JComboBoxProgetto.setBounds(100, 240, ProgettoSize.width, ProgettoSize.height);
 			jPanelMagazzinoProgetto.add(JComboBoxProgetto);
-	   centro.add(jPanelMagazzinoProgetto);
+			body.add(jPanelMagazzinoProgetto);
 	
 			
-	   this.add(nord);
-	   this.add(centro);
 	}
 		
 		

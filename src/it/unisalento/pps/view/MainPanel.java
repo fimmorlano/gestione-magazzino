@@ -1,40 +1,54 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Graphics;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
 
+/**
+ * Pannello generico con metodi e caratteristiche
+ * comuni a tutti i pannelli.
+ * 
+ * @author
+ *
+ */
 public class MainPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
 
-	protected JPanel nord;
-	protected JPanel centro;
+	protected JPanel header;
+	protected JPanel menu;
+	protected JPanel body;
 
 	public MainPanel() {
-		super();
+		super(new BorderLayout());
 
-		nord = new JPanel();
-		centro = new JPanel();
-		
-		nord.setLayout(null);
-		centro.setLayout(null);
-		
-//		centro.add(new JLabel("test"));
-		
-		setLayout(new BorderLayout()); // TODO ?? a chi applica questo setLayout()?
+		/*
+		 * Inizializzo i pannelli che compongono il layout
+		 * generico dell'applicazione
+		 */
+		header = new JPanel();
+		menu = new JPanel();
+		body = new JPanel();
+
+		/*
+		 * Imposto il layout per ogni pannello creato
+		 */
+		header.setLayout(new BorderLayout());
+		menu.setLayout(new BorderLayout());
+		body.setLayout(new BorderLayout());
+
+		/*
+		 * Aggiungo i pannelli al mainPanel
+		 */
+		this.add(header);
+		this.add(menu);
+		this.add(body);
 	}
-
-//	@Override
-//	protected void paintComponent(Graphics g) {
-//		super.paintComponent(g);
-//	}
 	
 	/**
-	 * Visualizza un altro pannello tra queli contenuti nella collezione di cards
-	 * della mainWindow.
+	 * Richiede al contenitore MainWindow la visualizzazione di
+	 * un altro pannello tra quelli disponibili nella collezione di cards.
 	 * 
 	 * @param panelId
 	 */
@@ -49,20 +63,28 @@ public class MainPanel extends JPanel {
 	 * Get & Set
 	 */
 
-	public JPanel getNord() {
-		return nord;
+	public JPanel getHeader() {
+		return header;
 	}
 
-	public void setNord(JPanel nord) {
-		this.nord = nord;
+	public void setHeader(JPanel header) {
+		this.header = header;
 	}
 
-	public JPanel getCentro() {
-		return centro;
+	public JPanel getMenu() {
+		return menu;
 	}
 
-	public void setCentro(JPanel centro) {
-		this.centro = centro;
+	public void setMenu(JPanel menu) {
+		this.menu = menu;
+	}
+
+	public JPanel getBody() {
+		return body;
+	}
+
+	public void setBody(JPanel body) {
+		this.body = body;
 	}
 
 }

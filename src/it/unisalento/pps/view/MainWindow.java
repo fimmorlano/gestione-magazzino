@@ -83,7 +83,8 @@ public class MainWindow extends JFrame {//implements ItemListener {
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
 		
-//		repaint();
+//        pack();
+//        repaint();
 	}
 
 //    public void itemStateChanged(ItemEvent evt) {

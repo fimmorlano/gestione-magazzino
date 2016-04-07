@@ -13,18 +13,18 @@ import it.unisalento.pps.model.Utente;
  * @author fra sara
  *
  */
-public class UtenteDAO {
+public class OrdineDAO {
 
-	private static UtenteDAO instance;
+	private static OrdineDAO instance;
 
 	private DbConnection dbConnection = DbConnection.getInstance();
 
-	private UtenteDAO() {
+	private OrdineDAO() {
 	}
 	
-	public static UtenteDAO getInstance() {
+	public static OrdineDAO getInstance() {
 		if(instance==null) {	
-			instance = new UtenteDAO();
+			instance = new OrdineDAO();
 		}
 		return instance;
 	}

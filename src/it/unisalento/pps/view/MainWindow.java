@@ -3,7 +3,6 @@ package it.unisalento.pps.view;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Container;
-import java.awt.event.ItemEvent;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -11,16 +10,20 @@ import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
 
 /**
+ * Finestra principale dell'applicazione.<BR />
+ * E' un contenitore vuoto di tipo JFrame.<BR />
+ * <BR />
+ * Riferimenti per CardLayout:<BR />
  * http://docs.oracle.com/javase/tutorial/uiswing/examples/layout/CardLayoutDemoProject/src/layout/CardLayoutDemo.java
  * 
  * @author fra sara
  *
  */
-public class MainWindow extends JFrame {//implements ItemListener {
+public class MainWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
 
-	private JPanel cards; //a panel that uses CardLayout
+	private JPanel cards; // a panel that uses CardLayout
 
 	public MainWindow() {
 		super("Gestione Magazzino");
@@ -40,87 +43,45 @@ public class MainWindow extends JFrame {//implements ItemListener {
         }
         /* Turn off metal's use of bold fonts */
         UIManager.put("swing.boldMetal", Boolean.FALSE);
-        
-//        //Schedule a job for the event dispatch thread:
-//        //creating and showing this application's GUI.
-//        javax.swing.SwingUtilities.invokeLater(new Runnable() {
-//            public void run() {
-//                createAndShowGUI();
-//            }
-//        });
-		
-		Container c = getContentPane();
-		BorderLayout b = new BorderLayout();
-		c.setLayout(b);
 
+        // retrieve and setup main content panel
+		Container c = getContentPane();
+		c.setLayout(new BorderLayout());
+
+		// create all application panels (i.e. "cards")
 		LoginWindow loginWindow = new LoginWindow();
+		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
 		RiepilogoOrdineView riepilogoOrdineView = new RiepilogoOrdineView();
 		MainWindowDipendente mainWindowDipendente = new MainWindowDipendente();
 		PrenotaArticoliWindow prenotaArticoliWindow = new PrenotaArticoliWindow();
 		FirstWinCapoProgetto firstWinCapoProgetto = new FirstWinCapoProgetto();
 		RapportoOrdiniView rapportoOrdiniView = new RapportoOrdiniView();
-		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
 		RifornisciMagazzinoView rifornisciMagazzinoView = new RifornisciMagazzinoView();
 		
         // Create the panel that contains the "cards".
         cards = new JPanel(new CardLayout());
-        
+
+        // add panels to cards container
         cards.add(loginWindow, CardPanel.LOGIN);
         cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
-		
-//		this.add(loginWindow);
-//		c.add(riepilogoOrdineView, BorderLayout.CENTER);
-//		c.add(mainWindowDipendente, BorderLayout.CENTER);
-//		c.add(prenotaArticoliWindow, BorderLayout.CENTER);
-//		c.add(firstWinCapoProgetto, BorderLayout.CENTER);
-//		c.add(rapportoOrdiniView, BorderLayout.CENTER);
-//		c.add(firstWinMagazziniere, BorderLayout.CENTER);
-//		this.add(rifornisciMagazzinoView);
 
+        // add cards container to main content panel of this frame
         c.add(cards);
 
 		setSize(1000,600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
-		
-//        pack();
-//        repaint();
 	}
 
-//    public void itemStateChanged(ItemEvent evt) {
-//        CardLayout cl = (CardLayout)(cards.getLayout());
-//        cl.show(cards, (String)evt.getItem());
-//    }
-
+    /**
+     * Visualizza il pannello indicato in input.
+     * 
+     * @param panelId		stringa identificativa dell'istanza di pannello
+     */
     public void showPanel(String panelId) {
         CardLayout cl = (CardLayout)(cards.getLayout());
         cl.show(cards, panelId);
     }
-
-//    public enum CardPanel {
-//    	LOGIN("LOGIN_UNALTRO", "rosso"),
-//    	MAGAZZINIERE("MAGAZZINIERE", "giallo");
-//
-//    	private String cardId;
-//    	private String colore;
-//    	
-//    	private CardPanel(String cardId, String colore) {
-//			this.cardId = cardId;
-//			this.colore = colore;
-//		}
-//    	
-//    	/*
-//    	 * Get & Set
-//    	 */
-//
-//		public String getCardId() {
-//			return cardId;
-//		}
-//
-//		public void setCardId(String cardId) {
-//			this.cardId = cardId;
-//		}
-//    }
     
    public class CardPanel {
 	   public static final String LOGIN = "LOGIN";

@@ -27,6 +27,7 @@ public class LoginWindow extends MainPanel {
 		super();
 		
 //		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
+		setLayout(null);
 
 		JLabel l1 = new JLabel ("Username:");
 		Dimension l1Size = l1.getPreferredSize();

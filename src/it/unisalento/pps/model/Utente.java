@@ -17,7 +17,7 @@ public class Utente {
 		
 	}
 	
-	public Utente(int idUtente, String nome, String cognome, String telefono, String codiceFiscale, String email, String tipoUtente, String username, String password) {
+	public Utente(long idUtente, String nome, String cognome, String telefono, String codiceFiscale, String email, String tipoUtente, String username, String password) {
 		this.setIdUtente(idUtente);
 		this.nome = nome;
 		this.cognome = cognome;

@@ -12,7 +12,7 @@ import javax.swing.SwingUtilities;
 import it.unisalento.pps.listeners.LoginBtnListener;
 import it.unisalento.pps.model.Utente;
 
-public class LoginWindow extends MainPanel {
+public class LoginPanel extends MainPanel {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
 
@@ -23,7 +23,7 @@ public class LoginWindow extends MainPanel {
 	 * Possiamo ometterlo se non deve eseguire codice....
 	 * verrà chiamato in automatico il costruttore del padre MainPanel
 	 */
-	public LoginWindow() {
+	public LoginPanel() {
 		super();
 		
 //		setLayout(new BoxLayout(this, BoxLayout.Y_AXIS));
@@ -58,7 +58,7 @@ public class LoginWindow extends MainPanel {
 
 	@Override
 	public void paint(Graphics g) {
-		System.out.println("LoginWindow :: paint()");
+		System.out.println("LoginPanel :: paint()");
 		super.paint(g);
 	}
 

@@ -87,7 +87,7 @@ public class MainWindow extends JFrame {
 		 * Creo il contenuto del body
 		 */
 		// create all application panels (i.e. "cards")
-		LoginWindow loginWindow = new LoginWindow();
+		LoginPanel loginPanel = new LoginPanel();
 		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
 //		RiepilogoOrdineView riepilogoOrdineView = new RiepilogoOrdineView();
 //		MainWindowDipendente mainWindowDipendente = new MainWindowDipendente();
@@ -97,7 +97,7 @@ public class MainWindow extends JFrame {
 //		RifornisciMagazzinoView rifornisciMagazzinoView = new RifornisciMagazzinoView();
 		
         // add panels to cards container
-        cards.add(loginWindow, CardPanel.LOGIN);
+        cards.add(loginPanel, CardPanel.LOGIN);
         cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
 
 		/*

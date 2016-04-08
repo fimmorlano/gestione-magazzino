@@ -4,10 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.CardLayout;
 import java.awt.Container;
 
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 import javax.swing.UnsupportedLookAndFeelException;
+
+import it.unisalento.pps.model.Utente;
 
 /**
  * Finestra principale dell'applicazione.<BR />
@@ -23,7 +28,17 @@ public class MainWindow extends JFrame {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
 
-	private JPanel cards; // a panel that uses CardLayout
+	protected JPanel containerPanel;
+
+	protected JPanel header;
+	protected JPanel menu;
+	private JPanel cards;	// a panel that uses CardLayout
+
+	/*
+	 * il contenuto di questa variabile può essere mdificato solo
+	 * dal metodo xxx del LoginPanel 
+	 */
+	private Utente user;	// current logged user
 
 	public MainWindow() {
 		super("Gestione Magazzino");
@@ -48,29 +63,81 @@ public class MainWindow extends JFrame {
 		Container c = getContentPane();
 		c.setLayout(new BorderLayout());
 
+		containerPanel = new JPanel(new BorderLayout());
+
+		/*
+		 * Inizializzo i pannelli che compongono il layout
+		 * generico dell'applicazione
+		 */
+		header = new JPanel();
+		menu = new JPanel();
+		cards = new JPanel(new CardLayout()); // this panel contains the "cards".
+
+		createHeader();
+		createMenu();
+
+		/*
+		 * Aggiungo i pannelli al mainPanel
+		 */
+		containerPanel.add(header, BorderLayout.NORTH);
+		containerPanel.add(menu, BorderLayout.WEST);
+		containerPanel.add(cards, BorderLayout.CENTER);
+
 		// create all application panels (i.e. "cards")
 		LoginWindow loginWindow = new LoginWindow();
 		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
-		RiepilogoOrdineView riepilogoOrdineView = new RiepilogoOrdineView();
-		MainWindowDipendente mainWindowDipendente = new MainWindowDipendente();
-		PrenotaArticoliWindow prenotaArticoliWindow = new PrenotaArticoliWindow();
-		FirstWinCapoProgetto firstWinCapoProgetto = new FirstWinCapoProgetto();
-		RapportoOrdiniView rapportoOrdiniView = new RapportoOrdiniView();
-		RifornisciMagazzinoView rifornisciMagazzinoView = new RifornisciMagazzinoView();
+//		RiepilogoOrdineView riepilogoOrdineView = new RiepilogoOrdineView();
+//		MainWindowDipendente mainWindowDipendente = new MainWindowDipendente();
+//		PrenotaArticoliWindow prenotaArticoliWindow = new PrenotaArticoliWindow();
+//		FirstWinCapoProgetto firstWinCapoProgetto = new FirstWinCapoProgetto();
+//		RapportoOrdiniView rapportoOrdiniView = new RapportoOrdiniView();
+//		RifornisciMagazzinoView rifornisciMagazzinoView = new RifornisciMagazzinoView();
 		
-        // Create the panel that contains the "cards".
-        cards = new JPanel(new CardLayout());
-
         // add panels to cards container
         cards.add(loginWindow, CardPanel.LOGIN);
         cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
 
         // add cards container to main content panel of this frame
-        c.add(cards);
+        c.add(containerPanel);
 
-		setSize(1000,600);
+		setSize(1000, 600);
 		setDefaultCloseOperation(EXIT_ON_CLOSE);
 		setVisible(true);
+	}
+
+	/**
+	 * Compone il pannello header
+	 */
+	protected void createHeader() {
+		System.out.println("MainPanel :: createHeader()");
+		if(user==null) {
+			JLabel l1 = new JLabel ("Effettua il login prima di cominciare!");
+			header.add(l1);
+		} else {
+			JLabel l1 = new JLabel ("Benvenuto "+user.getNome()+" "+user.getCognome()+ "!");
+			JButton voceMenu1 = new JButton("Logout");
+			header.add(l1);
+			header.add(voceMenu1);
+		}
+	}
+
+	/**
+	 * Compone il pannello del menu
+	 */
+	protected void createMenu() {
+		System.out.println("MainPanel :: createMenu()");
+		/*
+		 * Creo i bottoni
+		 */
+		JButton voceMenu1 = new JButton("Voce Menu 1");
+		JButton voceMenu2 = new JButton("Voce Menu 2");
+		JButton voceMenu3 = new JButton("Voce Menu 3");
+
+		menu.add(voceMenu1);
+		menu.add(voceMenu2);
+		menu.add(voceMenu3);
+
+		menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
 	}
 
     /**
@@ -78,15 +145,50 @@ public class MainWindow extends JFrame {
      * 
      * @param panelId		stringa identificativa dell'istanza di pannello
      */
-    public void showPanel(String panelId) {
-        CardLayout cl = (CardLayout)(cards.getLayout());
-        cl.show(cards, panelId);
-    }
-    
-   public class CardPanel {
-	   public static final String LOGIN = "LOGIN";
-	   public static final String MAGAZZINIERE = "MAGAZZINIERE";
-   }
+	public void showPanel(String panelId) {
+		CardLayout cl = (CardLayout) (cards.getLayout());
+		cl.show(cards, panelId);
+	}
+
+	/*
+	 * Get & Set
+	 */
+
+	public JPanel getHeader() {
+		return header;
+	}
+
+	public void setHeader(JPanel header) {
+		this.header = header;
+	}
+
+	public JPanel getMenu() {
+		return menu;
+	}
+
+	public void setMenu(JPanel menu) {
+		this.menu = menu;
+	}
+
+	public Utente getUser() {
+		return user;
+	}
+
+	public void setUser(Utente user) {
+		this.user = user;
+	}
+
+	/**
+	 * Classe di costanti con gli id di tutte le
+	 * istanze di pannello usate nell'applicazione.
+	 * 
+	 * @author sara francesco
+	 *
+	 */
+	public class CardPanel {
+		public static final String LOGIN = "LOGIN";
+		public static final String MAGAZZINIERE = "MAGAZZINIERE";
+	}
 
 }
 

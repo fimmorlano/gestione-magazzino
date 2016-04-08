@@ -1,51 +1,49 @@
 package it.unisalento.pps.view;
 
-import java.awt.BorderLayout;
+import java.awt.Graphics;
+import java.awt.LayoutManager;
 
 import javax.swing.JPanel;
 import javax.swing.SwingUtilities;
+
+import it.unisalento.pps.model.Utente;
 
 /**
  * Pannello generico con metodi e caratteristiche
  * comuni a tutti i pannelli.
  * 
- * @author
+ * @author sara francesco
  *
  */
 public class MainPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L; // richiesto da tutte le classi che implementano l'interfaccia serializable
-
-	protected JPanel header;
-	protected JPanel menu;
-	protected JPanel body;
-
-	public MainPanel() {
-		super(new BorderLayout());
-
-		/*
-		 * Inizializzo i pannelli che compongono il layout
-		 * generico dell'applicazione
-		 */
-		header = new JPanel();
-		menu = new JPanel();
-		body = new JPanel();
-
-		/*
-		 * Imposto il layout per ogni pannello creato
-		 */
-		header.setLayout(new BorderLayout());
-		menu.setLayout(new BorderLayout());
-		body.setLayout(new BorderLayout());
-
-		/*
-		 * Aggiungo i pannelli al mainPanel
-		 */
-		this.add(header);
-		this.add(menu);
-		this.add(body);
-	}
 	
+	public MainPanel() {
+		super();
+	}
+
+	public MainPanel(LayoutManager l) {
+		super(l);
+	}
+
+	@Override
+	public void paint(Graphics g) {
+		System.out.println("MainPanel :: paint()");
+		super.paint(g);
+	}
+
+	/**
+	 * Fornisce l'informazione sull'utente attualmente loggato
+	 * conservata nella classe della finestra principale dell'applicazione.
+	 * @return
+	 */
+	protected Utente getLoggedUser(){
+		// reperisco la mainWindow
+		MainWindow mainWindow = (MainWindow) SwingUtilities.getWindowAncestor(this);
+		return mainWindow.getUser();
+	}
+
 	/**
 	 * Richiede al contenitore MainWindow la visualizzazione di
 	 * un altro pannello tra quelli disponibili nella collezione di cards.
@@ -62,30 +60,6 @@ public class MainPanel extends JPanel {
 	/*
 	 * Get & Set
 	 */
-
-	public JPanel getHeader() {
-		return header;
-	}
-
-	public void setHeader(JPanel header) {
-		this.header = header;
-	}
-
-	public JPanel getMenu() {
-		return menu;
-	}
-
-	public void setMenu(JPanel menu) {
-		this.menu = menu;
-	}
-
-	public JPanel getBody() {
-		return body;
-	}
-
-	public void setBody(JPanel body) {
-		this.body = body;
-	}
 
 }
 

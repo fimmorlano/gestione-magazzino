@@ -124,7 +124,7 @@ public class Utente {
 	
 		//TODO ? gestire l'eccezione lanciata da userExists
 //		return UtenteDAO.getInstance().userExists(username, password);
-		return false;
+		return true;
 	}
 
 	public long getIdUtente() {

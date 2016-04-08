@@ -1,6 +1,7 @@
 package it.unisalento.pps.listeners;
 
 import it.unisalento.pps.business.UtenteBusiness;
+import it.unisalento.pps.model.Utente;
 import it.unisalento.pps.view.LoginWindow;
 import it.unisalento.pps.view.MainWindow.CardPanel;
 
@@ -27,10 +28,11 @@ public class LoginBtnListener implements ActionListener {
 		
 		if(utenteEsiste) {
 			JOptionPane.showMessageDialog(null, "Benvenuto!");
+			loginWindow.updateLoginStatus(new Utente());
+			loginWindow.redirect(CardPanel.MAGAZZINIERE);
 		}
 		else {
 			JOptionPane.showMessageDialog(null, "Utente non riconosciuto");
-			loginWindow.redirect(CardPanel.MAGAZZINIERE);
 		}
 			
 		

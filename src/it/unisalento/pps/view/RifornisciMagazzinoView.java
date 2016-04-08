@@ -102,7 +102,7 @@ public class RifornisciMagazzinoView extends MainPanel {
 				jPanelOperations.add(modifyBtn);
 				JButton deleteBtn = new JButton("Elimina articolo");
 				jPanelOperations.add(deleteBtn);
-			centro.add(jPanelOperations, BorderLayout.SOUTH);
+				body.add(jPanelOperations, BorderLayout.SOUTH);
 			
 			
 			
@@ -183,9 +183,6 @@ public class RifornisciMagazzinoView extends MainPanel {
 			
 		//	c.add(jPanelOperazioniDettagli, BorderLayout.SOUTH);
 			
-		
-			this.add(nord);
-			this.add(centro); 
 	
 		}
 		

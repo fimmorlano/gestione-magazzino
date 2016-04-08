@@ -29,11 +29,7 @@ public class FirstWinCapoProgetto extends MainPanel{
 			Dimension progettoBtnSize = progettoBtn.getPreferredSize();
 			progettoBtn.setBounds(158, 140, progettoBtnSize.width, progettoBtnSize.height);
 		jPanelDipendenteProgetto.add(progettoBtn);
-	centro.add(jPanelDipendenteProgetto, BorderLayout.CENTER);
-	
-	
-	this.add(nord);
-	this.add(centro);
+	body.add(jPanelDipendenteProgetto, BorderLayout.CENTER);
 	
 	
 		

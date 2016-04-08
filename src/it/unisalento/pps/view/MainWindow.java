@@ -2,6 +2,7 @@ package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Color;
 import java.awt.Container;
 
 import javax.swing.BoxLayout;
@@ -69,25 +70,22 @@ public class MainWindow extends JFrame {
 		 * Inizializzo i pannelli che compongono il layout
 		 * generico dell'applicazione
 		 */
-		header = new JPanel();
-		menu = new JPanel();
+		header = createHeader();
+		menu = createMenu();
 		cards = new JPanel(new CardLayout()); // this panel contains the "cards".
-
+		
 		/*
-		 * Creo il contenuto dell'header
+		 * FIXME eliminare queste colorazioni di background
 		 */
-		createHeader();
-
-		/*
-		 * Creo il contenuto del menu
-		 */
-		createMenu();
+		header.setBackground(new Color(255, 200, 200));
+		menu.setBackground(new Color(200, 255, 200));
+		cards.setBackground(new Color(200, 200, 255));
 
 		/*
 		 * Creo il contenuto del body
 		 */
 		// create all application panels (i.e. "cards")
-		LoginWindow loginWindow = new LoginWindow();
+		LoginPanel loginPanel = new LoginPanel();
 		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
 //		RiepilogoOrdineView riepilogoOrdineView = new RiepilogoOrdineView();
 //		MainWindowDipendente mainWindowDipendente = new MainWindowDipendente();
@@ -97,7 +95,7 @@ public class MainWindow extends JFrame {
 //		RifornisciMagazzinoView rifornisciMagazzinoView = new RifornisciMagazzinoView();
 		
         // add panels to cards container
-        cards.add(loginWindow, CardPanel.LOGIN);
+        cards.add(loginPanel, CardPanel.LOGIN);
         cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
 
 		/*
@@ -118,7 +116,8 @@ public class MainWindow extends JFrame {
 	/**
 	 * Compone il pannello header
 	 */
-	protected void createHeader() {
+	protected JPanel createHeader() {
+		JPanel header = new JPanel();
 		System.out.println("MainPanel :: createHeader()");
 		if(user==null) { // utente non ancora loggato
 			JLabel l1 = new JLabel ("Effettua il login prima di cominciare!");
@@ -129,12 +128,14 @@ public class MainWindow extends JFrame {
 			header.add(l1);
 			header.add(voceMenu1);
 		}
+		return header;
 	}
 
 	/**
 	 * Compone il pannello del menu
 	 */
-	protected void createMenu() {
+	protected JPanel createMenu() {
+		JPanel menu = new JPanel();
 		System.out.println("MainPanel :: createMenu()");
 		/*
 		 * Creo i bottoni
@@ -148,6 +149,8 @@ public class MainWindow extends JFrame {
 		menu.add(voceMenu3);
 
 		menu.setLayout(new BoxLayout(menu, BoxLayout.Y_AXIS));
+
+		return menu;
 	}
 
     /**

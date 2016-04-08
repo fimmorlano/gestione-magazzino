@@ -28,7 +28,10 @@ public class LoginBtnListener implements ActionListener {
 		
 		if(utenteEsiste) {
 			JOptionPane.showMessageDialog(null, "Benvenuto!");
-			loginWindow.updateLoginStatus(new Utente());
+			Utente utente = new Utente();
+			utente.setNome("Marco");
+			utente.setCognome("Ingrosso");
+			loginWindow.updateLoginStatus(utente);
 			loginWindow.redirect(CardPanel.MAGAZZINIERE);
 		}
 		else {

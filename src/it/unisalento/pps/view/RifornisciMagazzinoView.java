@@ -1,29 +1,23 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.GridLayout;
 
-import javax.swing.JOptionPane;
-import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
 
 public class RifornisciMagazzinoView extends MainPanel {
 	
-	//pannello del caso d'uso "visualizza articoli da aggiungere in magazzino"
+	private static final long serialVersionUID = 1L;
+
+		//pannello del caso d'uso "visualizza articoli da aggiungere in magazzino"
 		private JPanel jPanelSelezionaArticoliMagazzino = new JPanel();
 		
 	//pannello del caso d'uso "invia aggiungi nuovo articolo"
@@ -82,6 +76,9 @@ public class RifornisciMagazzinoView extends MainPanel {
 				tabellaAM[2][2] = "i";
 				String[] columnNames1 = new String[]{"Nome", "Codice", "Prodotto", "Categoria", "Prezzo", "Quantità"}; //array di stringhe, i cui elementi sono i nomi delle colonne della matrice
 				TableModel model1 = new DefaultTableModel(tabellaAM, columnNames1){//usiamo il TableModel di default: passiamo come parametri i dati e i nomi delle colonne
+					private static final long serialVersionUID = 1L;
+
+					@SuppressWarnings({ "unchecked", "rawtypes" })
 					public Class getColumnClass(int index) {
 						switch(index) {
 							default: return String.class;
@@ -102,7 +99,7 @@ public class RifornisciMagazzinoView extends MainPanel {
 				jPanelOperations.add(modifyBtn);
 				JButton deleteBtn = new JButton("Elimina articolo");
 				jPanelOperations.add(deleteBtn);
-				body.add(jPanelOperations, BorderLayout.SOUTH);
+				this.add(jPanelOperations, BorderLayout.SOUTH);
 			
 			
 			
@@ -121,7 +118,9 @@ public class RifornisciMagazzinoView extends MainPanel {
 			tabellaA[2][1] = "h";
 			tabellaA[2][2] = "i";
 			String[] columnNames2 = new String[]{"Nome", "Codice", "Prodotto", "Categoria", "Prezzo", "Quantità"}; //array di stringhe, i cui elementi sono i nomi delle colonne della matrice
+			@SuppressWarnings("serial")
 			TableModel model2 = new DefaultTableModel(tabellaA, columnNames2){//usiamo il TableModel di default: passiamo come parametri i dati e i nomi delle colonne
+				@SuppressWarnings({ "unchecked", "rawtypes" })
 				public Class getColumnClass(int index) {
 					switch(index) {
 						default: return String.class;
@@ -169,6 +168,9 @@ public class RifornisciMagazzinoView extends MainPanel {
 				tabellaD[5][1] = "";
 			String[] columnNames3 = new String[]{"", "Dati"}; //array di stringhe, i cui elementi sono i nomi delle colonne della matrice
 			TableModel model3 = new DefaultTableModel(tabellaD, columnNames3){//usiamo il TableModel di default: passiamo come parametri i dati e i nomi delle colonne
+				private static final long serialVersionUID = 1L;
+
+					@SuppressWarnings({ "unchecked", "rawtypes" })
 					public Class getColumnClass(int index) {
 						switch(index) {
 							default: return String.class;

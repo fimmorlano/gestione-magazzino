@@ -18,7 +18,7 @@ public class RiepilogoOrdineView extends MainPanel {
 		JLabel labelOrdineAutorizzato = new JLabel ("Il sistema ha autorizzato il seguente ordine di articoli:");
 		Dimension labelOrdineAutorizzatoSize = labelOrdineAutorizzato.getPreferredSize();
 		labelOrdineAutorizzato.setBounds(410, 10, labelOrdineAutorizzatoSize.width, labelOrdineAutorizzatoSize.height);
-		body.add(labelOrdineAutorizzato, BorderLayout.NORTH); // TODO ?? perché intendiamo aggiungerlo a nord e invece il layout del panel centro è null??
+		this.add(labelOrdineAutorizzato, BorderLayout.NORTH); // TODO ?? perché intendiamo aggiungerlo a nord e invece il layout del panel centro è null??
 		
 		/*
 		 * TODO ? implementare la lista che costituisce il riepilogo dell'ordine, e che andrà nella parte
@@ -33,7 +33,7 @@ public class RiepilogoOrdineView extends MainPanel {
 		jPanelOperations.add(indietroBtn);
 		JButton avantiBtn = new JButton("Avanti");
 		jPanelOperations.add(avantiBtn);
-		body.add(jPanelOperations);
+		this.add(jPanelOperations);
 	
 	}
 

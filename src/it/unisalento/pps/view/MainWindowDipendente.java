@@ -24,7 +24,7 @@ public class MainWindowDipendente extends MainPanel {
 		jpN.add(new JButton("Comando 1"));
 		jpN.add(new JButton("Comando 2"));
 		jpN.add(new JButton("Comando 3"));
-		header.add(jpN, BorderLayout.NORTH);
+//		header.add(jpN, BorderLayout.NORTH);
 
 		JPanel jpW = new JPanel();
 		jpW.setLayout(new GridLayout(2, 1));
@@ -37,17 +37,17 @@ public class MainWindowDipendente extends MainPanel {
 		// b2.addActionListener(l);
 		jpW.add(b1);
 		jpW.add(b2);
-		body.add(jpW, BorderLayout.WEST);
+//		body.add(jpW, BorderLayout.WEST);
 
 		JPanel jpS = new JPanel();
 		jpS.setLayout(new FlowLayout());
 		jpS.add(new JTextField(10));
 		jpS.add(new JButton("Cerca..."));
-		body.add(jpS, BorderLayout.SOUTH);
+//		body.add(jpS, BorderLayout.SOUTH);
 
 		jpC1.setLayout(new FlowLayout());
 		jpC1.add(new JLabel("Storico ordini"));
-		body.add(jpC1, BorderLayout.CENTER);
+//		body.add(jpC1, BorderLayout.CENTER);
 
 		jpC2.setLayout(new FlowLayout());
 		jpC2.add(new JLabel("Invia nuovo ordine"));

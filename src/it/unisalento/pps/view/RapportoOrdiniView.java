@@ -1,10 +1,5 @@
 package it.unisalento.pps.view;
 
-import java.awt.BorderLayout;
-import java.awt.Container;
-
-import javax.swing.JFrame;
-
 public class RapportoOrdiniView extends MainPanel{
 
 	private static final long serialVersionUID = 1L;

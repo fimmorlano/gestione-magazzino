@@ -1,30 +1,21 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.GridLayout;
 
-import javax.swing.JOptionPane;
-import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 import javax.swing.table.DefaultTableModel;
-import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
-import javax.swing.table.TableColumn;
 import javax.swing.table.TableModel;
 
-import it.unisalento.pps.model.Magazzino;
-
 public class PrenotaArticoliWindow extends MainPanel {
+
+	private static final long serialVersionUID = 1L;
 
 	private JPanel jPanelSelezionaArticoli = new JPanel();
 	
@@ -53,6 +44,9 @@ public class PrenotaArticoliWindow extends MainPanel {
 			tabellaAO[2][2] = "i";
 			String[] columnNames1 = new String[]{"Nome", "Codice", "Prodotto", "Categoria", "Prezzo", "Quantità"}; //array di stringhe, i cui elementi sono i nomi delle colonne della matrice
 			TableModel model1 = new DefaultTableModel(tabellaAO, columnNames1){//usiamo il TableModel di default: passiamo come parametri i dati e i nomi delle colonne
+				private static final long serialVersionUID = 1L;
+
+				@SuppressWarnings({ "unchecked", "rawtypes" })
 				public Class getColumnClass(int index) {
 					switch(index) {
 						default: return String.class;
@@ -63,7 +57,7 @@ public class PrenotaArticoliWindow extends MainPanel {
 			//creiamo uno ScrollPane che contiene la tabella e che aggiungeremo nel container
 			JScrollPane p=new JScrollPane(tabellaArticoliOrdine);
 		jPanelSelezionaArticoli.add(p);
-		body.add(jPanelSelezionaArticoli, BorderLayout.CENTER);
+		this.add(jPanelSelezionaArticoli, BorderLayout.CENTER);
 	
 	
 	
@@ -72,7 +66,7 @@ public class PrenotaArticoliWindow extends MainPanel {
 			jPanelOperations.add(indietroBtn);
 			JButton avantiBtn = new JButton("Avanti");
 			jPanelOperations.add(avantiBtn);
-			body.add(jPanelOperations, BorderLayout.SOUTH);
+			this.add(jPanelOperations, BorderLayout.SOUTH);
 			
 			
 			
@@ -82,6 +76,7 @@ public class PrenotaArticoliWindow extends MainPanel {
 				labelMagazzino.setBounds(100, 50, labelMagazzinoSize.width, labelMagazzinoSize.height);
 			jPanelMagazzinoProgetto.add(labelMagazzino);
 				String[] magazzini = { "Magazzino1", "Magazzino2", "Magazzino3", "Magazzino4", "Magazzino4"};
+			@SuppressWarnings({ "rawtypes", "unchecked" })
 			JComboBox JComboBoxMagazzino = new JComboBox(magazzini);
 				Dimension MagazzinoSize = JComboBoxMagazzino.getPreferredSize();
 				JComboBoxMagazzino.setBounds(100, 90, MagazzinoSize.width, MagazzinoSize.height);
@@ -91,11 +86,12 @@ public class PrenotaArticoliWindow extends MainPanel {
 				labelProgetto.setBounds(100, 200, labelProgettoSize.width, labelProgettoSize.height);
 			jPanelMagazzinoProgetto.add(labelProgetto);
 				String[] progetti = {"Progetto1", "Progetto2", "Progetto3", "Progetto4", "Progetto5"};
+			@SuppressWarnings({ "rawtypes", "unchecked" })
 			JComboBox JComboBoxProgetto = new JComboBox(progetti);
 				Dimension ProgettoSize = JComboBoxProgetto.getPreferredSize();
 				JComboBoxProgetto.setBounds(100, 240, ProgettoSize.width, ProgettoSize.height);
 			jPanelMagazzinoProgetto.add(JComboBoxProgetto);
-			body.add(jPanelMagazzinoProgetto);
+			this.add(jPanelMagazzinoProgetto);
 	
 			
 	}

@@ -36,7 +36,7 @@ public class MainWindow extends JFrame {
 
 	/*
 	 * il contenuto di questa variabile può essere mdificato solo
-	 * dal metodo xxx del LoginPanel 
+	 * dal metodo updateLoginStatus del LoginPanel 
 	 */
 	private Utente user;	// current logged user
 
@@ -61,7 +61,7 @@ public class MainWindow extends JFrame {
 
         // retrieve and setup main content panel
 		Container c = getContentPane();
-		c.setLayout(new BorderLayout());
+		c.setLayout(new BorderLayout()); // FIXME verificare se ha senso mantenere il layout sul contentPane
 
 		containerPanel = new JPanel(new BorderLayout());
 
@@ -73,16 +73,19 @@ public class MainWindow extends JFrame {
 		menu = new JPanel();
 		cards = new JPanel(new CardLayout()); // this panel contains the "cards".
 
+		/*
+		 * Creo il contenuto dell'header
+		 */
 		createHeader();
+
+		/*
+		 * Creo il contenuto del menu
+		 */
 		createMenu();
 
 		/*
-		 * Aggiungo i pannelli al mainPanel
+		 * Creo il contenuto del body
 		 */
-		containerPanel.add(header, BorderLayout.NORTH);
-		containerPanel.add(menu, BorderLayout.WEST);
-		containerPanel.add(cards, BorderLayout.CENTER);
-
 		// create all application panels (i.e. "cards")
 		LoginWindow loginWindow = new LoginWindow();
 		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
@@ -97,6 +100,13 @@ public class MainWindow extends JFrame {
         cards.add(loginWindow, CardPanel.LOGIN);
         cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
 
+		/*
+		 * Aggiungo i pannelli al mainPanel
+		 */
+		containerPanel.add(header, BorderLayout.NORTH);
+		containerPanel.add(menu, BorderLayout.WEST);
+		containerPanel.add(cards, BorderLayout.CENTER);
+
         // add cards container to main content panel of this frame
         c.add(containerPanel);
 
@@ -110,11 +120,11 @@ public class MainWindow extends JFrame {
 	 */
 	protected void createHeader() {
 		System.out.println("MainPanel :: createHeader()");
-		if(user==null) {
+		if(user==null) { // utente non ancora loggato
 			JLabel l1 = new JLabel ("Effettua il login prima di cominciare!");
 			header.add(l1);
-		} else {
-			JLabel l1 = new JLabel ("Benvenuto "+user.getNome()+" "+user.getCognome()+ "!");
+		} else { // utente loggato
+			JLabel l1 = new JLabel ("Benvenuto " + user.getNome() + " " + user.getCognome()+ "!");
 			JButton voceMenu1 = new JButton("Logout");
 			header.add(l1);
 			header.add(voceMenu1);

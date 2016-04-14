@@ -2,20 +2,44 @@ package it.unisalento.pps.model;
 
 public class Articolo {
 	
+	private long idArticolo;
+	private String nome;
 	private String categoria;
 	private String prodotto;
-	private String nome;
-	private String codice;
 	private float prezzo;
 	
 	
 
-	public Articolo(String categoria, String prodotto, String nome, String codice, float prezzo) {
+	public Articolo(long idArticolo, String nome, String categoria, String prodotto, float prezzo) {
+		this.idArticolo = idArticolo;
+		this.nome = nome;
 		this.categoria = categoria;
 		this.prodotto = prodotto;
-		this.nome = nome;
-		this.codice = codice;
 		this.prezzo = prezzo;
+	}
+	
+	
+	public Articolo() {
+		
+	}
+
+
+
+	
+	
+
+	/*
+	 * Get & Set
+	 */
+	
+
+	public long getIdArticolo() {
+		return idArticolo;
+	}
+
+
+	public void setIdArticolo(long idArticolo) {
+		this.idArticolo = idArticolo;
 	}
 
 
@@ -28,18 +52,6 @@ public class Articolo {
 
 	public void setNome(String nome) {
 		this.nome = nome;
-	}
-
-
-
-	public String getCodice() {
-		return codice;
-	}
-
-
-
-	public void setCodice(String codice) {
-		this.codice = codice;
 	}
 
 

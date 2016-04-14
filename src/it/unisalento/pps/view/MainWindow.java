@@ -87,6 +87,7 @@ public class MainWindow extends JFrame {
 		// create all application panels (i.e. "cards")
 		LoginPanel loginPanel = new LoginPanel();
 		FirstWinMagazziniere firstWinMagazziniere = new FirstWinMagazziniere();
+		AggiungiFornituraPanel aggiungiFornituraPanel = new AggiungiFornituraPanel();
 //		RiepilogoOrdineView riepilogoOrdineView = new RiepilogoOrdineView();
 //		MainWindowDipendente mainWindowDipendente = new MainWindowDipendente();
 //		PrenotaArticoliWindow prenotaArticoliWindow = new PrenotaArticoliWindow();
@@ -97,6 +98,7 @@ public class MainWindow extends JFrame {
         // add panels to cards container
         cards.add(loginPanel, CardPanel.LOGIN);
         cards.add(firstWinMagazziniere, CardPanel.MAGAZZINIERE);
+        cards.add(aggiungiFornituraPanel, CardPanel.AGGIUNGIFORNITURA);
 
 		/*
 		 * Aggiungo i pannelli al mainPanel
@@ -201,6 +203,7 @@ public class MainWindow extends JFrame {
 	public class CardPanel {
 		public static final String LOGIN = "LOGIN";
 		public static final String MAGAZZINIERE = "MAGAZZINIERE";
+		public static final String AGGIUNGIFORNITURA = "AGGIUNGI FORNITURA";
 	}
 
 }

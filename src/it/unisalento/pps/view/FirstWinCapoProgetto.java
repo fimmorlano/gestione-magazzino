@@ -1,16 +1,15 @@
 package it.unisalento.pps.view;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 public class FirstWinCapoProgetto extends MainPanel{
+
+	private static final long serialVersionUID = 1L;
 
 	public FirstWinCapoProgetto() {
 		super();
@@ -29,7 +28,7 @@ public class FirstWinCapoProgetto extends MainPanel{
 			Dimension progettoBtnSize = progettoBtn.getPreferredSize();
 			progettoBtn.setBounds(158, 140, progettoBtnSize.width, progettoBtnSize.height);
 		jPanelDipendenteProgetto.add(progettoBtn);
-	body.add(jPanelDipendenteProgetto, BorderLayout.CENTER);
+		add(jPanelDipendenteProgetto, BorderLayout.CENTER);
 	
 	
 		
